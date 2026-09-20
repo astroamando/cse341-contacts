@@ -6,8 +6,8 @@ const doc = {
     description: 'API documentation for the CSE 341 Contacts Project'
   },
 
-  host: process.env.RENDER_EXTERNAL_HOSTNAME || 'localhost:8080',
-  schemes: process.env.RENDER_EXTERNAL_HOSTNAME ? ['https'] : ['http']
+  host: 'cse341-contacts-1-vmo7.onrender.com',
+  schemes: ['https']
 };
 
 const outputFile = './swagger.json';
