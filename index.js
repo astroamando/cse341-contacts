@@ -1,6 +1,9 @@
 require('dotenv').config();
 
 const express = require('express');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
 const { initDb } = require('./db/connect');
 const contactsRoutes = require('./routes/contacts');
 
@@ -13,6 +16,10 @@ app.get('/', (req, res) => {
   res.send('Contacts API is running!');
 });
 
+// Swagger API documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// Contacts routes
 app.use('/contacts', contactsRoutes);
 
 initDb()
